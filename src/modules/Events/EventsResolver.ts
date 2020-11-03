@@ -1,9 +1,11 @@
 import { Query, Resolver } from 'type-graphql'
+import { Event } from '../../entity/Event'
+import { events } from '../../index'
 
 @Resolver()
 export default class EventsResolver {
-	@Query(() => [String])
+	@Query(() => [Event])
 	async events() {
-		return ['Romantic Cooking!', 'Sailing', 'All-Night Coding']
+		return events
 	}
 }
