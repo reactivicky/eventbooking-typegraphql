@@ -1,19 +1,26 @@
 import { Field, Float, ID, ObjectType } from 'type-graphql'
+import { BaseEntity, Column, PrimaryGeneratedColumn, Entity } from 'typeorm'
 
 @ObjectType()
-export class Event {
+@Entity()
+export class Event extends BaseEntity {
 	@Field(() => ID)
-	_id: string
+	@PrimaryGeneratedColumn()
+	id: number
 
 	@Field()
+	@Column()
 	title: string
 
 	@Field()
+	@Column()
 	description: string
 
 	@Field(() => Float)
-	price: number
+	@Column({ type: 'real' })
+	price: string
 
 	@Field(() => String)
+	@Column()
 	date: Date
 }

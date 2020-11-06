@@ -4,13 +4,10 @@ import { createSchema } from './utils/createSchema'
 import cors from 'cors'
 import { ApolloServer } from 'apollo-server-express'
 
-import { Event } from 'src/entity/Event'
-// import { createConnection } from 'typeorm'
-
-export const events: Event[] = []
+import { createConnection } from 'typeorm'
 
 const main = async () => {
-	// await createConnection()
+	await createConnection()
 
 	const schema = await createSchema()
 
